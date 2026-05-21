@@ -1,568 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Richard Dinh | Data Analyst</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE = edge">
+            <meta name="viewport" content="width= device=width, initial-scale =1.0">
+            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            <title>Personal Portfolio</title>
+    </head>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <div class="nav-logo">Richard<span class="accent">.</span></div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="https://drive.google.com/file/d/1S1v52kUjyPghIV6KnU_PRES9OKBGX-Pn/view?usp=drive_link"
-             target="_blank" class="btn-cv">
-            <i class="fas fa-download"></i> My CV
-          </a>
-        </li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+    <body>
+        <header>
+            <div class="head">
+                <div class ="title">
+                    <h1><b>Richard</b><span class="highlight-name"> Dinh</span></h1>
+                </div>
+                <div class="menu">
+                    <nav> 
+                        <ul>
+                            <li><a href=""><b>About me</b></a></li>
+                            <li><a href="https://drive.google.com/file/d/1S1v52kUjyPghIV6KnU_PRES9OKBGX-Pn/view?usp=drive_link" target="_blank"><b>My CV</b></a></li>
+                            <li><a href="mycv.html"><b>Projects</b></a></li>
+                            <li><a href=""><b>Contact</b></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
 
-  <!-- ===== HERO ===== -->
-  <section id="about" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-particles" id="particles"></div>
+            <div class="aboutme">
+                <div class="text"> 
+                    <h1><span class="highlight-name">Hello Everyone,</span></h1>
+                    <h2>My name is <span class="highlight-name">Richard</span></h2>
+                    <h2>I'm a <span class="highlight-name">Data Analyst</span></h2>
+                    <b>As a current Information Systems student, I have established a strong academic base in SQL and Python. My passion for Data Analysis has grown throughout my studies,
+                         motivating me to proactively self-learn and acquire proficiency in the field's essential tools.</b>
+                    <b>I am actively seeking a professional environment to apply my knowledge, gain invaluable hands-on experience from industry experts, and dedicate my efforts to making a meaningful contribution to the company's success.</b>
+                    <div class="social-media-container">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
 
-    <div class="hero-inner">
-      <div class="hero-text fade-up">
-        <p class="hero-greeting">👋 Hello, I'm</p>
-        <h1 class="hero-name">Dinh <span class="accent">Huu An</span></h1>
-        <h2 class="hero-role">Data Analyst <span class="role-cursor">|</span></h2>
-        <p class="hero-bio">
-          An Information Technology graduate specializing in Information Systems, with strong skills in SQL and Python
-          and a growing proficiency in Power BI. Seeking a Data Analyst role to apply technical skills,
-          enhance data analysis and visualization capabilities, and gain practical business insights.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-outline">Get In Touch</a>
+                <div class="avatar">
+                    <img src="c04b6ce591211d7f4430.jpg" alt="Andrew J. Ferguson" class="profile-image">
+                </div>
+            </div>
+        </header>
+
+        <div class="skills">
+            <h1>MY SKILLS</h1>
+            <div class = "img-skill">
+                <img src="png-clipart-logo-microsoft-sql-font-design-text-logo.png" alt="SQL Server" class="sql-logo">
+                <img src="python.png" alt="Python" class="python-logo">
+                <img src="PowerBI.png" alt="Power BI" class="python-logo">
+                <img src="excel.jpg" alt="Excel" class="python-logo">
+            </div>
         </div>
-        <div class="hero-socials">
-          <a href="https://github.com/AnDinh039" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:andinh03.da@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <div class="box-skills-row first-row"> 
+                <div class="box-item1">
+                    <h1>SQL Server</h1>
+                    <div class="box-item1-content">
+                        <div class="box-item1-content-skill">
+                            <div class="skill-line">
+                                <p>Database Design & Modeling</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div> 
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>DQL Fundamentals</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>DML - Data Manipulation</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Advanced Querying & Joins</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Optimization & Advanced Techniques</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-item1-content-donutchart">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-separator"></div>
+                <div class="box-item2">
+                    <h1>Python</h1>
+                    <div class="box-item1-content">
+                        <div class="box-item1-content-skill">
+                            <div class="skill-line">
+                                <p>Data Collection</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 85%;"></div> 
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Data Preprocessing</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Exploratory Data Analysis</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Data Visualization</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="box-item1-content-donutchart">
+                            <p>Chart</p>
+                        </div>
+                    </div>                    
+                </div>
         </div>
-      </div>
 
-      <div class="hero-avatar fade-up delay-2">
-        <div class="avatar-ring">
-          <img src="c04b6ce591211d7f4430.jpg" alt="Dinh Huu An" class="avatar-img">
+        <div class="box-skills-row second-row"> 
+                <div class="box-item1">
+                    <h1>MS Excel</h1>
+                    <div class="box-item1-content">
+                        <div class="box-item1-content-skill">
+                            <div class="skill-line">
+                                <p>Data Cleaning & Preparation</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 95%;"></div> 
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Formulas & Functions (VLOOKUP, Pivot)</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Data Modeling & Visualization</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>VBA/Macros Fundamentals</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 40%;"></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="box-item1-content-donutchart">
+                            <p>Chart</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-separator"></div>
+                <div class="box-item2">
+                    <h1>Power BI</h1>
+                    <div class="box-item1-content">
+                        <div class="box-item1-content-skill">
+                            <div class="skill-line">
+                                <p>Data Transformation (Power Query)</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 85%;"></div> 
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>DAX Fundamentals</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Data Modeling & Relationships</p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-line">
+                                <p>Data Visualization & Dashboarding </p>
+                                <div class="progress-bar-wrapper">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="box-item1-content-donutchart">
+                            <p>Chart</p>
+                        </div>
+                    </div>
+                </div>
         </div>
-        <div class="avatar-badge">
-          <i class="fas fa-chart-bar"></i>
-          <span>Data Analyst</span>
+
+        <div class="contact-me">
+            <h1>contact-me</h1>
         </div>
-      </div>
-    </div>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+    </body>
 
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ===== SKILLS ===== -->
-  <section id="skills" class="skills-section">
-    <div class="section-header fade-up">
-      <p class="section-tag">What I work with</p>
-      <h2>Technical <span class="accent">Skills</span></h2>
-    </div>
-
-    <div class="skill-logos fade-up delay-1">
-      <div class="skill-logo-item">
-        <img src="PowerBI.png" alt="Power BI">
-        <span>Power BI</span>
-      </div>
-      <div class="skill-logo-item">
-        <img src="png-clipart-logo-microsoft-sql-font-design-text-logo.png" alt="SQL Server">
-        <span>SQL Server</span>
-      </div>
-      <div class="skill-logo-item">
-        <img src="python.png" alt="Python">
-        <span>Python</span>
-      </div>
-      <div class="skill-logo-item">
-        <img src="excel.jpg" alt="Excel">
-        <span>MS Excel</span>
-      </div>
-    </div>
-
-    <div class="skills-grid fade-up delay-2">
-
-      <!-- Power BI — STRONGEST -->
-      <div class="skill-card" style="--card-accent:#f2c94c;">
-        <div class="skill-card-header">
-          <div class="skill-icon bi-icon"><i class="fas fa-chart-pie"></i></div>
-          <div>
-            <h3>Power BI</h3>
-            <p class="skill-level">Advanced · Primary Tool</p>
-          </div>
-          <div class="skill-donut" data-pct="92">
-            <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:92"/></svg>
-            <span>92%</span>
-          </div>
-        </div>
-        <div class="skill-bars">
-          <div class="bar-item"><span>Data Visualization & Dashboarding</span><div class="bar"><div class="bar-fill" style="--w:95%"></div></div></div>
-          <div class="bar-item"><span>Data Modeling & Relationships</span><div class="bar"><div class="bar-fill" style="--w:92%"></div></div></div>
-          <div class="bar-item"><span>Power Query (ETL)</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
-          <div class="bar-item"><span>DAX – Advanced Measures & KPIs</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Time Intelligence & YoY Analysis</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
-        </div>
-      </div>
-
-      <!-- SQL — STRONG -->
-      <div class="skill-card" style="--card-accent:#e05252;">
-        <div class="skill-card-header">
-          <div class="skill-icon sql-icon"><i class="fas fa-database"></i></div>
-          <div>
-            <h3>SQL</h3>
-            <p class="skill-level">Advanced · Primary Tool</p>
-          </div>
-          <div class="skill-donut" data-pct="90">
-            <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:90"/></svg>
-            <span>90%</span>
-          </div>
-        </div>
-        <div class="skill-bars">
-          <div class="bar-item"><span>Data Extraction & Filtering (DQL)</span><div class="bar"><div class="bar-fill" style="--w:92%"></div></div></div>
-          <div class="bar-item"><span>Joins, Aggregations & Subqueries</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
-          <div class="bar-item"><span>Window Functions (RANK, ROW_NUMBER)</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Data Manipulation (DML)</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Query Optimization & Indexing</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
-        </div>
-      </div>
-
-      <!-- Python -->
-      <div class="skill-card" style="--card-accent:#4ea8de;">
-        <div class="skill-card-header">
-          <div class="skill-icon py-icon"><i class="fab fa-python"></i></div>
-          <div>
-            <h3>Python</h3>
-            <p class="skill-level">Proficient</p>
-          </div>
-          <div class="skill-donut" data-pct="78">
-            <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:78"/></svg>
-            <span>78%</span>
-          </div>
-        </div>
-        <div class="skill-bars">
-          <div class="bar-item"><span>Data Cleaning & Preprocessing (Pandas)</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
-          <div class="bar-item"><span>Exploratory Data Analysis (EDA)</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
-          <div class="bar-item"><span>Data Visualization (Matplotlib/Seaborn)</span><div class="bar"><div class="bar-fill" style="--w:78%"></div></div></div>
-          <div class="bar-item"><span>Web Scraping (Selenium)</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
-          <div class="bar-item"><span>Numerical Analysis (NumPy)</span><div class="bar"><div class="bar-fill" style="--w:72%"></div></div></div>
-        </div>
-      </div>
-
-      <!-- Excel -->
-      <div class="skill-card" style="--card-accent:#27ae60;">
-        <div class="skill-card-header">
-          <div class="skill-icon ex-icon"><i class="fas fa-table"></i></div>
-          <div>
-            <h3>MS Excel</h3>
-            <p class="skill-level">Proficient</p>
-          </div>
-          <div class="skill-donut" data-pct="75">
-            <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:75"/></svg>
-            <span>75%</span>
-          </div>
-        </div>
-        <div class="skill-bars">
-          <div class="bar-item"><span>Data Cleaning & Preparation</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Power Query (Data Transformation)</span><div class="bar"><div class="bar-fill" style="--w:82%"></div></div></div>
-          <div class="bar-item"><span>PivotTables & PivotCharts</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
-          <div class="bar-item"><span>Formulas & Functions (VLOOKUP, IF)</span><div class="bar"><div class="bar-fill" style="--w:78%"></div></div></div>
-          <div class="bar-item"><span>Dashboard Building</span><div class="bar"><div class="bar-fill" style="--w:72%"></div></div></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== EXPERIENCE ===== -->
-  <section id="experience" class="experience-section">
-    <div class="section-header fade-up">
-      <p class="section-tag">My journey</p>
-      <h2>Work <span class="accent">Experience</span></h2>
-    </div>
-
-    <div class="timeline fade-up delay-1">
-
-      <!-- First Virture - most recent -->
-      <div class="timeline-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">Dec, 2025 – Mar, 2026</div>
-        <div class="tl-card">
-          <div class="tl-company">FIRST VIRTURE – NHÂN TRÍ LLC</div>
-          <div class="tl-role">Data Analyst</div>
-          <ul class="tl-duties">
-            <li>Analyzed and processed land asset data, ensuring high data quality and supporting effective decision-making</li>
-            <li>Maintained data accuracy through standardized data handling processes, reducing input errors</li>
-            <li>Built dashboards and reports to monitor workflow performance, improving tracking efficiency and issue identification</li>
-          </ul>
-          <div class="tl-tags">
-            <span>Data Analysis</span><span>Dashboard</span><span>Reporting</span><span>Data Quality</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- AH-Longquan -->
-      <div class="timeline-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">May, 2025 – Aug, 2025</div>
-        <div class="tl-card">
-          <div class="tl-company">AH-LONGQUAN CO., LTD</div>
-          <div class="tl-role">Data Analyst Internship</div>
-          <ul class="tl-duties">
-            <li>Processed and analyzed land asset data to ensure accuracy and consistency, improving data reliability for reporting</li>
-            <li>Performed data entry and handling following defined procedures, reducing errors and maintaining data integrity</li>
-            <li>Developed dashboards to track daily/weekly progress, enabling better performance monitoring and faster issue detection</li>
-          </ul>
-          <div class="tl-tags">
-            <span>Python</span><span>Data Cleaning</span><span>Dashboard</span><span>Reporting</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="timeline-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">Oct, 2021 – Feb, 2026</div>
-        <div class="tl-card">
-          <div class="tl-company">SAIGON UNIVERSITY (SGU)</div>
-          <div class="tl-role">Bachelor of Information Technology · Information Systems</div>
-          <ul class="tl-duties">
-            <li>Built strong academic foundations in SQL, database design, and software engineering</li>
-            <li>Self-studied Power BI, advanced Python analytics, and data storytelling outside coursework</li>
-            <li>Applied skills through real-world projects in sales analytics and banking fraud detection</li>
-          </ul>
-          <div class="tl-tags">
-            <span>SQL</span><span>Python</span><span>Information Systems</span><span>English B2 (VSTEP)</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="projects-section">
-    <div class="section-header fade-up">
-      <p class="section-tag">What I've built</p>
-      <h2>Personal <span class="accent">Projects</span></h2>
-    </div>
-
-    <!-- PROJECT 01 — text left, images right -->
-    <div class="project-split fade-up">
-      <div class="ps-content">
-        <div class="ps-meta">
-          <span class="ps-num">01</span>
-          <span class="project-badge">Featured</span>
-        </div>
-        <div class="ps-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Sales Performance Analysis</h3>
-        <p class="project-period">Oct, 2025 – Nov, 2025</p>
-        <p class="project-desc">
-          Analyzed cross-functional datasets (Orders, Employees, Stores, Channels, Customers) to deliver
-          sales and operational performance insights using Power BI. Built advanced DAX measures for
-          channel segmentation, margin analysis, and customer lifetime value (CLV).
-        </p>
-        <div class="project-results">
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Online = top channel (38% revenue, AOV 1.47M) — optimized channel investment strategy</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>VIP/Premium = 44% customers contributing &gt;75% CLV (VIP CLV 18.16M, ~5× Regular)</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Top team generated 10.3M revenue; Sales staff drove 60% of total revenue</span></div>
-        </div>
-        <div class="project-tools">
-          <span>Power BI</span><span>DAX</span><span>Power Query</span><span>SQL</span><span>Excel</span>
-        </div>
-        <a href="https://github.com/AnDinh039/Sales-Performance-Analysis-TechMart-Power-BI" target="_blank" class="project-link">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-
-      <div class="ps-images">
-        <!-- Main large image -->
-        <div class="ps-img-main" onclick="openLightbox('sales_1.png','Executive Overview — Revenue & KPIs')">
-          <img src="sales_1.png" alt="Executive Overview">
-          <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Executive Overview</span></div>
-        </div>
-        <!-- 3 smaller images stacked -->
-        <div class="ps-img-stack">
-          <div class="ps-img-thumb" onclick="openLightbox('sales_2.png','Channel Performance')">
-            <img src="sales_2.png" alt="Channel Performance">
-            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Channel Performance</span></div>
-          </div>
-          <div class="ps-img-thumb" onclick="openLightbox('sales_5.png','Customer Analytics')">
-            <img src="sales_5.png" alt="Customer Analytics">
-            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Customer Analytics</span></div>
-          </div>
-          <div class="ps-img-thumb" onclick="openLightbox('sales_6.png','Team & Employee Performance')">
-            <img src="sales_6.png" alt="Team Performance">
-            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Team Performance</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 02 — images left, text right -->
-    <div class="project-split reverse fade-up delay-1">
-      <div class="ps-content">
-        <div class="ps-meta">
-          <span class="ps-num">02</span>
-        </div>
-        <div class="ps-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Bank Transaction Risk Alert System</h3>
-        <p class="project-period">Jul, 2025 – Oct, 2025</p>
-        <p class="project-desc">
-          Engineered a real-time banking transaction monitoring system integrated with Machine Learning
-          models for proactive fraud and anomaly detection. Built a custom Tkinter GUI with
-          Matplotlib/Seaborn for live visualization of transaction flows and alert status.
-        </p>
-        <div class="project-results">
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>System operated stably in real time with over 80% anomaly detection precision</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Prompt alerting mechanism successfully mitigated risky transaction activities</span></div>
-        </div>
-        <div class="project-tools">
-          <span>Python</span><span>Scikit-learn</span><span>Kafka</span><span>Docker</span><span>SQL Server</span>
-        </div>
-        <a href="https://github.com/AnDinh039/DATA-ANALYSIS-IN-BANKING.git" target="_blank" class="project-link">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-
-      <!-- Placeholder images for Bank project — replace src when you have screenshots -->
-      <div class="ps-images">
-        <div class="ps-img-main ps-placeholder">
-          <div class="placeholder-inner"><i class="fas fa-shield-alt"></i><span>Dashboard Screenshot</span><p>Coming soon</p></div>
-        </div>
-        <div class="ps-img-stack">
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-chart-area"></i><span>Live Monitor</span></div></div>
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-exclamation-triangle"></i><span>Alert System</span></div></div>
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-brain"></i><span>ML Model</span></div></div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ===== LIGHTBOX ===== -->
-  <div id="lightbox" onclick="closeLightbox()">
-    <div class="lb-inner" onclick="event.stopPropagation()">
-      <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
-      <img id="lb-img" src="" alt="">
-      <p id="lb-caption"></p>
-    </div>
-  </div>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="contact-section">
-    <div class="contact-bg"></div>
-    <div class="section-header fade-up">
-      <p class="section-tag">Let's talk</p>
-      <h2>Get In <span class="accent">Touch</span></h2>
-      <p class="contact-subtitle">I'm currently open to Data Analyst opportunities. Let's connect!</p>
-    </div>
-
-    <div class="contact-grid fade-up delay-1">
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <div>
-            <p class="contact-label">Phone</p>
-            <a href="tel:0944136802">0944 136 802</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div>
-            <p class="contact-label">Email</p>
-            <a href="mailto:andinh03.da@gmail.com">andinh03.da@gmail.com</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div>
-            <p class="contact-label">Location</p>
-            <span>Tan Phu District, HCMC</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fab fa-github"></i></div>
-          <div>
-            <p class="contact-label">GitHub</p>
-            <a href="https://github.com/AnDinh039" target="_blank">github.com/AnDinh039</a>
-          </div>
-        </div>
-        <div class="contact-socials">
-          <a href="https://github.com/AnDinh039" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:andinh03.da@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="John Doe" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="john@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" placeholder="Internship Opportunity">
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
-        </div>
-        <button type="submit" class="btn-primary full-width">
-          <i class="fas fa-paper-plane"></i> Send Message
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">Richard<span class="accent">.</span></div>
-      <p class="footer-copy">© 2025 Dinh Huu An. Crafted with ❤️ and a lot of data.</p>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <button class="back-to-top" id="backTop" aria-label="Back to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <script>
-    // Lightbox
-    function openLightbox(src, caption) {
-      document.getElementById('lb-img').src = src;
-      document.getElementById('lb-caption').textContent = caption;
-      const lb = document.getElementById('lightbox');
-      lb.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-      document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
-    });
-
-    // Mobile nav toggle
-    document.getElementById('navToggle').addEventListener('click', function() {
-      document.querySelector('.nav-links').classList.toggle('open');
-      this.classList.toggle('active');
-    });
-
-    // Close nav on link click
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.remove('open');
-        document.getElementById('navToggle').classList.remove('active');
-      });
-    });
-
-    // Back to top
-    document.getElementById('backTop').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Animate donut charts on scroll
-    const donutObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('animated');
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.skill-donut').forEach(el => donutObserver.observe(el));
-
-    // Animate bars on scroll
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.bar-fill').forEach(b => b.classList.add('animated'));
-        }
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.skill-card').forEach(el => barObserver.observe(el));
-
-    // Role cursor blink
-    const cursor = document.querySelector('.role-cursor');
-    if (cursor) setInterval(() => cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0', 600);
-
-    // Contact form handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = this.querySelector('button[type="submit"]');
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        btn.style.background = '';
-        this.reset();
-      }, 3000);
-    });
-
-    // Particles
-    const container = document.getElementById('particles');
-    if (container) {
-      for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.cssText = `
-          left:${Math.random()*100}%;
-          top:${Math.random()*100}%;
-          width:${2+Math.random()*4}px;
-          height:${2+Math.random()*4}px;
-          animation-delay:${Math.random()*6}s;
-          animation-duration:${4+Math.random()*6}s;
-        `;
-        container.appendChild(p);
-      }
-    }
-  </script>
-</body>
 </html>
