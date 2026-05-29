@@ -7,6 +7,50 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== LANGUAGE TOGGLE ===== */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 4px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: 8px;
+    }
+    .lang-toggle:hover { background: rgba(255,255,255,0.15); }
+    .lang-btn {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 14px;
+      transition: all 0.2s;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.5px;
+    }
+    .lang-btn.active {
+      background: var(--accent, #f2c94c);
+      color: #111;
+    }
+    /* Responsibilities / Results sub-labels */
+    .tl-sub-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--card-accent, #f2c94c);
+      margin: 10px 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tl-sub-label i { font-size: 0.65rem; }
+    .tl-duties.results li::marker { color: #27ae60; }
+    .tl-duties.results li { color: rgba(255,255,255,0.8); }
+  </style>
 </head>
 <body>
 
@@ -15,17 +59,24 @@
     <div class="nav-inner">
       <div class="nav-logo">Richard<span class="accent">.</span></div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"    data-en="About"      data-vi="Giới thiệu">About</a></li>
+        <li><a href="#skills"   data-en="Skills"     data-vi="Kỹ năng">Skills</a></li>
+        <li><a href="#experience" data-en="Experience" data-vi="Kinh nghiệm">Experience</a></li>
+        <li><a href="#education"  data-en="Education"  data-vi="Học vấn">Education</a></li>
+        <li><a href="#projects" data-en="Projects"   data-vi="Dự án">Projects</a></li>
+        <li><a href="#contact"  data-en="Contact"    data-vi="Liên hệ">Contact</a></li>
         <li>
-          <a href="https://drive.google.com/file/d/13UrubnFGBTm8S062QJwyrD6B0jGfPq4w/view?usp=sharing"
+          <a id="cvLink"
+             href="https://drive.google.com/file/d/1ni6suG1KpTsB-omc-K03E9epOLKTBpiW/view"
              target="_blank" class="btn-cv">
-            <i class="fas fa-download"></i> My CV
+            <i class="fas fa-download"></i> <span id="cvText">My CV</span>
           </a>
+        </li>
+        <li>
+          <div class="lang-toggle" id="langToggle" title="Switch language">
+            <span class="lang-btn active" id="btnEN">EN</span>
+            <span class="lang-btn"        id="btnVI">VI</span>
+          </div>
         </li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -38,42 +89,39 @@
   <section id="about" class="hero">
     <div class="hero-bg"></div>
     <div class="hero-particles" id="particles"></div>
-
     <div class="hero-inner">
       <div class="hero-text fade-up">
-        <p class="hero-greeting">👋 Hello, I'm</p>
+        <p class="hero-greeting" data-en="👋 Hello, I'm" data-vi="👋 Xin chào, tôi là">👋 Hello, I'm</p>
         <h1 class="hero-name">Dinh <span class="accent">Huu An</span></h1>
-        <h2 class="hero-role">Data Analyst <span class="role-cursor">|</span></h2>
-        <p class="hero-bio">
-          An Information Technology graduate specializing in Information Systems, with strong skills in SQL and Power BI,
-          and foundational Python for data analysis. Seeking a Data Analyst role where I can apply data-driven thinking
-          to solve business problems and generate actionable insights.
+        <h2 class="hero-role"><span data-en="Data Analyst" data-vi="Phân Tích Dữ Liệu">Data Analyst</span> <span class="role-cursor">|</span></h2>
+        <p class="hero-bio"
+           data-en="IT graduate specializing in Data Analysis with hands-on experience in SQL, Power BI, and Python. Proven ability to translate business data into actionable insights across Retail and E-commerce domains. Quick learner with a strong foundation in EDA, data visualization, and business storytelling."
+           data-vi="Cử nhân CNTT chuyên ngành Hệ thống thông tin, có kinh nghiệm thực tế trong phân tích dữ liệu với SQL, Power BI và Python. Có khả năng chuyển hóa dữ liệu kinh doanh thành insights giá trị trong lĩnh vực Bán lẻ và Thương mại điện tử. Nền tảng vững chắc về EDA, trực quan hóa dữ liệu và tư duy phân tích kinh doanh.">
+          IT graduate specializing in Data Analysis with hands-on experience in SQL, Power BI, and Python. Proven ability to translate business data into actionable insights across Retail and E-commerce domains. Quick learner with a strong foundation in EDA, data visualization, and business storytelling.
         </p>
         <div class="hero-cta">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-outline">Get In Touch</a>
+          <a href="#projects" class="btn-primary" data-en="View Projects" data-vi="Xem Dự án">View Projects</a>
+          <a href="#contact" class="btn-outline"  data-en="Get In Touch"  data-vi="Liên hệ ngay">Get In Touch</a>
         </div>
         <div class="hero-socials">
-          <a href="https://github.com/AnDinh039" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/andinhda03" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:andinh03.da@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/AnDinh039"          target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/andinhda03"    target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/inhhuuan.582647"  target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:andinh03.da@gmail.com"           aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-
       <div class="hero-avatar fade-up delay-2">
         <div class="avatar-ring">
           <img src="c04b6ce591211d7f4430.jpg" alt="Dinh Huu An" class="avatar-img">
         </div>
         <div class="avatar-badge">
           <i class="fas fa-chart-bar"></i>
-          <span>Data Analyst</span>
+          <span data-en="Data Analyst" data-vi="Phân tích dữ liệu">Data Analyst</span>
         </div>
       </div>
     </div>
-
     <div class="hero-scroll-hint">
-      <span>Scroll</span>
+      <span data-en="Scroll" data-vi="Cuộn">Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -81,38 +129,23 @@
   <!-- ===== SKILLS ===== -->
   <section id="skills" class="skills-section">
     <div class="section-header fade-up">
-      <p class="section-tag">What I work with</p>
+      <p class="section-tag" data-en="What I work with" data-vi="Công cụ tôi sử dụng">What I work with</p>
       <h2>Technical <span class="accent">Skills</span></h2>
     </div>
-
     <div class="skill-logos fade-up delay-1">
-      <div class="skill-logo-item">
-        <img src="PowerBI.png" alt="Power BI">
-        <span>Power BI</span>
-      </div>
-      <div class="skill-logo-item">
-        <img src="png-clipart-logo-microsoft-sql-font-design-text-logo.png" alt="SQL Server">
-        <span>SQL Server</span>
-      </div>
-      <div class="skill-logo-item">
-        <img src="python.png" alt="Python">
-        <span>Python</span>
-      </div>
-      <div class="skill-logo-item">
-        <img src="excel.jpg" alt="Excel">
-        <span>MS Excel</span>
-      </div>
+      <div class="skill-logo-item"><img src="PowerBI.png" alt="Power BI"><span>Power BI</span></div>
+      <div class="skill-logo-item"><img src="png-clipart-logo-microsoft-sql-font-design-text-logo.png" alt="SQL Server"><span>SQL Server</span></div>
+      <div class="skill-logo-item"><img src="python.png" alt="Python"><span>Python</span></div>
+      <div class="skill-logo-item"><img src="excel.jpg" alt="Excel"><span>MS Excel</span></div>
     </div>
-
     <div class="skills-grid fade-up delay-2">
-
-      <!-- Power BI — STRONGEST -->
+      <!-- Power BI -->
       <div class="skill-card" style="--card-accent:#f2c94c;">
         <div class="skill-card-header">
           <div class="skill-icon bi-icon"><i class="fas fa-chart-pie"></i></div>
           <div>
             <h3>Power BI</h3>
-            <p class="skill-level">Advanced · Primary Tool</p>
+            <p class="skill-level" data-en="Advanced · Primary Tool" data-vi="Nâng cao · Công cụ chính">Advanced · Primary Tool</p>
           </div>
           <div class="skill-donut" data-pct="92">
             <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:92"/></svg>
@@ -120,21 +153,20 @@
           </div>
         </div>
         <div class="skill-bars">
-          <div class="bar-item"><span>Data Visualization & Dashboarding</span><div class="bar"><div class="bar-fill" style="--w:95%"></div></div></div>
-          <div class="bar-item"><span>Data Modeling & Relationships</span><div class="bar"><div class="bar-fill" style="--w:92%"></div></div></div>
-          <div class="bar-item"><span>Power Query (ETL)</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
-          <div class="bar-item"><span>DAX – Advanced Measures & KPIs</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Time Intelligence & YoY Analysis</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Visualization & Dashboarding" data-vi="Trực quan hóa & Dashboard">Data Visualization & Dashboarding</span><div class="bar"><div class="bar-fill" style="--w:95%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Modeling & Relationships"      data-vi="Mô hình hóa dữ liệu">Data Modeling & Relationships</span><div class="bar"><div class="bar-fill" style="--w:92%"></div></div></div>
+          <div class="bar-item"><span data-en="Power Query (ETL)"                  data-vi="Power Query (ETL)">Power Query (ETL)</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
+          <div class="bar-item"><span data-en="DAX – Advanced Measures & KPIs"     data-vi="DAX – Đo lường & KPIs">DAX – Advanced Measures & KPIs</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
+          <div class="bar-item"><span data-en="Time Intelligence & YoY Analysis"   data-vi="Phân tích thời gian & YoY">Time Intelligence & YoY Analysis</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
         </div>
       </div>
-
-      <!-- SQL — STRONG -->
+      <!-- SQL -->
       <div class="skill-card" style="--card-accent:#e05252;">
         <div class="skill-card-header">
           <div class="skill-icon sql-icon"><i class="fas fa-database"></i></div>
           <div>
             <h3>SQL</h3>
-            <p class="skill-level">Advanced · Primary Tool</p>
+            <p class="skill-level" data-en="Advanced · Primary Tool" data-vi="Nâng cao · Công cụ chính">Advanced · Primary Tool</p>
           </div>
           <div class="skill-donut" data-pct="90">
             <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:90"/></svg>
@@ -142,21 +174,20 @@
           </div>
         </div>
         <div class="skill-bars">
-          <div class="bar-item"><span>Data Extraction & Filtering (DQL)</span><div class="bar"><div class="bar-fill" style="--w:92%"></div></div></div>
-          <div class="bar-item"><span>Joins, Aggregations & Subqueries</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
-          <div class="bar-item"><span>Window Functions (RANK, ROW_NUMBER)</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Data Manipulation (DML)</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Query Optimization & Indexing</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Extraction & Filtering (DQL)" data-vi="Truy vấn & Lọc dữ liệu (DQL)">Data Extraction & Filtering (DQL)</span><div class="bar"><div class="bar-fill" style="--w:92%"></div></div></div>
+          <div class="bar-item"><span data-en="Joins, Aggregations & Subqueries" data-vi="JOIN, Tổng hợp & Subquery">Joins, Aggregations & Subqueries</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
+          <div class="bar-item"><span data-en="Window Functions (RANK, ROW_NUMBER)" data-vi="Hàm cửa sổ (RANK, ROW_NUMBER)">Window Functions (RANK, ROW_NUMBER)</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Manipulation (DML)" data-vi="Thao tác dữ liệu (DML)">Data Manipulation (DML)</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
+          <div class="bar-item"><span data-en="Query Optimization & Indexing" data-vi="Tối ưu truy vấn & Indexing">Query Optimization & Indexing</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
         </div>
       </div>
-
       <!-- Python -->
       <div class="skill-card" style="--card-accent:#4ea8de;">
         <div class="skill-card-header">
           <div class="skill-icon py-icon"><i class="fab fa-python"></i></div>
           <div>
             <h3>Python</h3>
-            <p class="skill-level">Proficient</p>
+            <p class="skill-level" data-en="Proficient" data-vi="Thành thạo">Proficient</p>
           </div>
           <div class="skill-donut" data-pct="78">
             <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:78"/></svg>
@@ -164,21 +195,20 @@
           </div>
         </div>
         <div class="skill-bars">
-          <div class="bar-item"><span>Data Cleaning & Preprocessing (Pandas)</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
-          <div class="bar-item"><span>Exploratory Data Analysis (EDA)</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
-          <div class="bar-item"><span>Data Visualization (Matplotlib/Seaborn)</span><div class="bar"><div class="bar-fill" style="--w:78%"></div></div></div>
-          <div class="bar-item"><span>Web Scraping (Selenium)</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
-          <div class="bar-item"><span>Numerical Analysis (NumPy)</span><div class="bar"><div class="bar-fill" style="--w:72%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Cleaning & Preprocessing (Pandas)" data-vi="Làm sạch dữ liệu (Pandas)">Data Cleaning & Preprocessing (Pandas)</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
+          <div class="bar-item"><span data-en="Exploratory Data Analysis (EDA)" data-vi="Phân tích khám phá (EDA)">Exploratory Data Analysis (EDA)</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Visualization (Matplotlib/Seaborn)" data-vi="Trực quan hóa (Matplotlib/Seaborn)">Data Visualization (Matplotlib/Seaborn)</span><div class="bar"><div class="bar-fill" style="--w:78%"></div></div></div>
+          <div class="bar-item"><span data-en="Web Scraping (Selenium)" data-vi="Thu thập dữ liệu web (Selenium)">Web Scraping (Selenium)</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
+          <div class="bar-item"><span data-en="Numerical Analysis (NumPy)" data-vi="Phân tích số học (NumPy)">Numerical Analysis (NumPy)</span><div class="bar"><div class="bar-fill" style="--w:72%"></div></div></div>
         </div>
       </div>
-
       <!-- Excel -->
       <div class="skill-card" style="--card-accent:#27ae60;">
         <div class="skill-card-header">
           <div class="skill-icon ex-icon"><i class="fas fa-table"></i></div>
           <div>
             <h3>MS Excel</h3>
-            <p class="skill-level">Proficient</p>
+            <p class="skill-level" data-en="Proficient" data-vi="Thành thạo">Proficient</p>
           </div>
           <div class="skill-donut" data-pct="75">
             <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="fill" cx="40" cy="40" r="34" style="--pct:75"/></svg>
@@ -186,75 +216,120 @@
           </div>
         </div>
         <div class="skill-bars">
-          <div class="bar-item"><span>Data Cleaning & Preparation</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
-          <div class="bar-item"><span>Power Query (Data Transformation)</span><div class="bar"><div class="bar-fill" style="--w:82%"></div></div></div>
-          <div class="bar-item"><span>PivotTables & PivotCharts</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
-          <div class="bar-item"><span>Formulas & Functions (VLOOKUP, IF)</span><div class="bar"><div class="bar-fill" style="--w:78%"></div></div></div>
-          <div class="bar-item"><span>Dashboard Building</span><div class="bar"><div class="bar-fill" style="--w:72%"></div></div></div>
+          <div class="bar-item"><span data-en="Data Cleaning & Preparation" data-vi="Làm sạch & Chuẩn bị dữ liệu">Data Cleaning & Preparation</span><div class="bar"><div class="bar-fill" style="--w:88%"></div></div></div>
+          <div class="bar-item"><span data-en="Power Query (Data Transformation)" data-vi="Power Query (Biến đổi dữ liệu)">Power Query (Data Transformation)</span><div class="bar"><div class="bar-fill" style="--w:82%"></div></div></div>
+          <div class="bar-item"><span data-en="PivotTables & PivotCharts" data-vi="PivotTable & PivotChart">PivotTables & PivotCharts</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
+          <div class="bar-item"><span data-en="Formulas & Functions (VLOOKUP, IF)" data-vi="Hàm & Công thức (VLOOKUP, IF)">Formulas & Functions (VLOOKUP, IF)</span><div class="bar"><div class="bar-fill" style="--w:78%"></div></div></div>
+          <div class="bar-item"><span data-en="Dashboard Building" data-vi="Xây dựng Dashboard">Dashboard Building</span><div class="bar"><div class="bar-fill" style="--w:72%"></div></div></div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
   <section id="experience" class="experience-section">
     <div class="section-header fade-up">
-      <p class="section-tag">My journey</p>
-      <h2>Work <span class="accent">Experience</span></h2>
+      <p class="section-tag" data-en="My journey" data-vi="Hành trình của tôi">My journey</p>
+      <h2>Work <span class="accent" data-en="Experience" data-vi="Kinh nghiệm">Experience</span></h2>
     </div>
 
     <div class="timeline fade-up delay-1">
 
-      <!-- First Virture - most recent -->
+      <!-- FIRST VIRTURE -->
       <div class="timeline-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Dec, 2025 – Mar, 2026</div>
         <div class="tl-card">
           <div class="tl-company">FIRST VIRTURE – NHÂN TRÍ LLC</div>
-          <div class="tl-role">Data Analyst</div>
+          <div class="tl-role" data-en="Data Analyst" data-vi="Nhân viên Phân tích Dữ liệu">Data Analyst</div>
+
+          <p class="tl-sub-label"><span data-en="Responsibilities" data-vi="Công việc chính">Responsibilities</span></p>
           <ul class="tl-duties">
-            <li>Queried and analyzed land asset data from internal SQL databases, ensuring accurate reporting</li>
-            <li>Standardized data workflows in Excel and Google Sheets, reducing errors and improving consistency</li>
-            <li>Built automated dashboards to track performance and enable faster issue detection</li>
+            <li data-en="Queried and analyzed land asset data from internal SQL databases, ensuring accurate reporting"
+                data-vi="Thực hiện truy vấn, phân tích và nhập dữ liệu tài sản đất từ hệ thống cơ sở dữ liệu nội bộ">
+              Queried and analyzed land asset data from internal SQL databases, ensuring accurate reporting</li>
+            <li data-en="Standardized data workflows in Excel and Google Sheets, reducing errors and improving consistency"
+                data-vi="Chuẩn hóa và tối ưu quy trình xử lý dữ liệu trên Excel và Google Sheets">
+              Standardized data workflows in Excel and Google Sheets, reducing errors and improving consistency</li>
+            <li data-en="Built automated dashboards to track performance and enable faster issue detection"
+                data-vi="Xây dựng các dashboard tự động nhằm theo dõi hiệu suất và hỗ trợ phát hiện sai sót dữ liệu">
+              Built automated dashboards to track performance and enable faster issue detection</li>
           </ul>
+
+          <p class="tl-sub-label"><span data-en="Results" data-vi="Kết quả đạt được">Results</span></p>
+          <ul class="tl-duties results">
+            <li data-en="Achieved a work quality score of 98% — consistently rated as one of the top performers"
+                data-vi="Đạt mức hiệu suất công việc 98%, thuộc nhóm nhân sự có hiệu quả cao">
+              Achieved a work quality score of 98% — consistently rated as one of the top performers</li>
+            <li data-en="Identified and categorized data entry errors via the statistical reporting dashboard; reviewed errors with staff and implemented corrective actions → reduced overall error rate by 90%"
+                data-vi="Xây dựng hệ thống dashboard hỗ trợ phát hiện lỗi nhập liệu kịp thời → đề xuất và triển khai cải tiến quy trình, góp phần giảm tới 90% tỷ lệ sai sót dữ liệu">
+              Identified and categorized data entry errors via the statistical reporting dashboard → reduced overall error rate by 90%</li>
+          </ul>
+
           <div class="tl-tags">
-            <span>Data Analysis</span><span>Dashboard</span><span>Reporting</span><span>Data Quality</span>
+            <span>SQL</span><span>Excel</span><span>Google Sheets</span><span>Dashboard</span><span>Data Quality</span>
           </div>
         </div>
       </div>
 
-      <!-- ✅ MỚI THÊM: XUKA CANVAS PRINTING SHOP (SHOPPE) -->
+      <!-- XUKA CANVAS PRINTING SHOP -->
       <div class="timeline-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Oct, 2025 – Jan, 2026</div>
         <div class="tl-card">
           <div class="tl-company">XUKA CANVAS PRINTING SHOP (SHOPEE)</div>
-          <div class="tl-role">Data Analyst (Collaborator)</div>
+          <div class="tl-role" data-en="Data Analyst (Freelancer)" data-vi="Phân tích Dữ liệu (Freelancer)">Data Analyst (Freelancer)</div>
+
+          <p class="tl-sub-label"><span data-en="Responsibilities" data-vi="Công việc chính">Responsibilities</span></p>
           <ul class="tl-duties">
-            <li>Collected, cleaned, and standardized Shopee data to ensure accuracy and consistency</li>
-            <li>Stored and managed structured data in SQL Server</li>
-            <li>Built Power BI dashboards to track revenue performance and order trends over time</li>
-            <li>Analyzed sales trends to support business insights and decision-making</li>
+            <li data-en="Designed and built a SQL Server database to store Shopee data"
+                data-vi="Xây dựng cơ sở dữ liệu bằng SQL Server để lưu trữ dữ liệu về đơn hàng, sản phẩm, khách hàng từ dữ liệu của Shopee">
+              Designed and built a SQL Server database to store Shopee data</li>
+            <li data-en="Analyzed revenue, product performance & customer purchasing behavior during year-end season"
+                data-vi="Phân tích dữ liệu doanh thu, hiệu suất sản phẩm và hành vi mua hàng của khách hàng">
+              Analyzed revenue, product performance &amp; customer purchasing behavior during year-end season</li>
+            <li data-en="Built Power BI dashboards to monitor performance weekly &amp; monthly"
+                data-vi="Xây dựng dashboard bằng Power BI để theo dõi hiệu suất kinh doanh theo tuần và tháng">
+              Built Power BI dashboards to monitor performance weekly &amp; monthly</li>
           </ul>
+
+          <p class="tl-sub-label"><span data-en="Results" data-vi="Kết quả đạt được">Results</span></p>
+          <ul class="tl-duties results">
+            <li data-en="December orders &amp; revenue grew +5% year-over-year"
+                data-vi="Góp phần tăng trưởng doanh thu và số lượng đơn hàng tháng 12 lên 5% so với cùng kỳ">
+              December orders &amp; revenue grew +5% year-over-year</li>
+            <li data-en="Identified wall calendars as key product driver → recommended increasing stock and expanding product varieties"
+                data-vi="Xác định sản phẩm chủ lực (lịch treo tường), từ đó đề xuất chiến lược nhập hàng và mở rộng mẫu mã sản phẩm">
+              Identified wall calendars as key product driver → recommended increasing stock and expanding product varieties</li>
+          </ul>
+
           <div class="tl-tags">
             <span>Power BI</span><span>SQL Server</span><span>Data Cleaning</span><span>Dashboard</span><span>Reporting</span>
           </div>
         </div>
       </div>
 
-      <!-- AH-Longquan -->
+      <!-- AH-LONGQUAN INTERNSHIP -->
       <div class="timeline-item">
         <div class="tl-dot"></div>
         <div class="tl-date">May, 2025 – Aug, 2025</div>
         <div class="tl-card">
           <div class="tl-company">AH-LONGQUAN CO., LTD</div>
-          <div class="tl-role">Data Analyst Internship</div>
+          <div class="tl-role" data-en="Data Analyst Internship" data-vi="Thực tập Phân tích Dữ liệu">Data Analyst Internship</div>
+
+          <p class="tl-sub-label"><span data-en="Responsibilities" data-vi="Công việc chính">Responsibilities</span></p>
           <ul class="tl-duties">
-            <li>Processed and analyzed land asset data to ensure accuracy and consistency, improving data reliability for reporting</li>
-            <li>Performed data entry and handling following defined procedures, reducing errors and maintaining data integrity</li>
-            <li>Developed dashboards to track daily/weekly progress, enabling better performance monitoring and faster issue detection</li>
+            <li data-en="Processed and analyzed land asset data to ensure accuracy and consistency, improving data reliability for reporting"
+                data-vi="Xử lý và phân tích dữ liệu tài sản đất để đảm bảo tính chính xác và nhất quán, nâng cao độ tin cậy dữ liệu cho báo cáo">
+              Processed and analyzed land asset data to ensure accuracy and consistency, improving data reliability for reporting</li>
+            <li data-en="Performed data entry and handling following defined procedures, reducing errors and maintaining data integrity"
+                data-vi="Thực hiện nhập liệu và xử lý dữ liệu theo quy trình chuẩn, giảm thiểu sai sót và duy trì tính toàn vẹn dữ liệu">
+              Performed data entry and handling following defined procedures, reducing errors and maintaining data integrity</li>
+            <li data-en="Developed dashboards to track daily/weekly progress, enabling better performance monitoring and faster issue detection"
+                data-vi="Xây dựng dashboard theo dõi tiến độ hàng ngày/tuần, hỗ trợ giám sát hiệu suất và phát hiện vấn đề nhanh hơn">
+              Developed dashboards to track daily/weekly progress, enabling better performance monitoring and faster issue detection</li>
           </ul>
+
           <div class="tl-tags">
             <span>Python</span><span>Data Cleaning</span><span>Dashboard</span><span>Reporting</span>
           </div>
@@ -267,125 +342,153 @@
   <!-- ===== EDUCATION ===== -->
   <section id="education" class="experience-section">
     <div class="section-header fade-up">
-      <p class="section-tag">My background</p>
-      <h2>Edu<span class="accent">cation</span></h2>
+      <p class="section-tag" data-en="My background" data-vi="Nền tảng học vấn">My background</p>
+      <h2>Edu<span class="accent" data-en="cation" data-vi="cation">cation</span></h2>
     </div>
-
     <div class="timeline fade-up delay-1">
-
       <div class="timeline-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Oct, 2021 – Feb, 2026</div>
         <div class="tl-card">
-          <div class="tl-company">SAIGON UNIVERSITY (SGU)</div>
-          <div class="tl-role">Bachelor of Information Technology · Information Systems</div>
+          <div class="tl-company" data-en="SAIGON UNIVERSITY (SGU)" data-vi="ĐẠI HỌC SÀI GÒN (SGU)">SAIGON UNIVERSITY (SGU)</div>
+          <div class="tl-role"
+               data-en="Bachelor of Information Technology · Information Systems"
+               data-vi="Cử nhân Công nghệ Thông tin · Chuyên ngành Hệ thống Thông tin">
+            Bachelor of Information Technology · Information Systems</div>
           <ul class="tl-duties">
-            <li>Built strong academic foundations in SQL, database design, and software engineering</li>
-            <li>Self-studied Power BI, advanced Python analytics, and data storytelling outside coursework</li>
-            <li>Applied skills through real-world projects in sales analytics and banking fraud detection</li>
+            <li data-en="Built strong academic foundations in SQL, database design, and software engineering"
+                data-vi="Xây dựng nền tảng vững chắc về SQL, thiết kế cơ sở dữ liệu và kỹ thuật phần mềm">
+              Built strong academic foundations in SQL, database design, and software engineering</li>
+            <li data-en="Self-studied Power BI, advanced Python analytics, and data storytelling outside coursework"
+                data-vi="Tự học Power BI, Python nâng cao và kỹ năng data storytelling ngoài chương trình đào tạo">
+              Self-studied Power BI, advanced Python analytics, and data storytelling outside coursework</li>
+            <li data-en="Applied skills through real-world projects in sales analytics and banking fraud detection"
+                data-vi="Ứng dụng kỹ năng qua các dự án thực tế về phân tích bán hàng và phát hiện gian lận ngân hàng">
+              Applied skills through real-world projects in sales analytics and banking fraud detection</li>
           </ul>
           <div class="tl-tags">
             <span>SQL</span><span>Python</span><span>Information Systems</span><span>English B2 (VSTEP)</span>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ===== PROJECTS ===== -->
   <section id="projects" class="projects-section">
     <div class="section-header fade-up">
-      <p class="section-tag">What I've built</p>
-      <h2>Personal <span class="accent">Projects</span></h2>
+      <p class="section-tag" data-en="What I've built" data-vi="Những gì tôi đã xây dựng">What I've built</p>
+      <h2>Personal <span class="accent" data-en="Projects" data-vi="Dự án">Projects</span></h2>
     </div>
 
-    <!-- ✅ MỚI THÊM: PROJECT 01 — Retails Business Operations Strategy (mới nhất) -->
+    <!-- PROJECT 01 — Retails Business Operations Strategy -->
     <div class="project-split fade-up">
       <div class="ps-content">
         <div class="ps-meta">
           <span class="ps-num">01</span>
-          <span class="project-badge">Featured</span>
+          <span class="project-badge" data-en="Featured" data-vi="Nổi bật">Featured</span>
         </div>
         <div class="ps-icon"><i class="fas fa-store"></i></div>
-        <h3>Retails Business Operations Strategy</h3>
+        <h3 data-en="Retails Business Operations Strategy" data-vi="Phân tích Chiến lược Hoạt động Bán lẻ">Retails Business Operations Strategy</h3>
         <p class="project-period">Apr, 2026 – May, 2026</p>
-        <p class="project-desc">
-          Analyzed retail performance using revenue decomposition (Orders × AOV) and Power BI
-          to identify root causes of the 2020 revenue decline. Delivered strategic recommendations
-          covering channel reallocation, customer acquisition, and omnichannel restructuring.
+        <p class="project-desc"
+           data-en="Analyzed retail performance using revenue decomposition (Orders × AOV) and Power BI to identify root causes of the 2020 revenue decline. Delivered strategic recommendations covering channel reallocation, customer acquisition, and omnichannel restructuring."
+           data-vi="Phân tích hiệu suất kinh doanh bán lẻ thông qua mô hình cây phân rã doanh thu (Orders × AOV), kết hợp dữ liệu đa nguồn nhằm xác định nguyên nhân biến động doanh thu năm 2020.">
+          Analyzed retail performance using revenue decomposition (Orders × AOV) and Power BI to identify root causes of the 2020 revenue decline. Delivered strategic recommendations covering channel reallocation, customer acquisition, and omnichannel restructuring.
         </p>
         <div class="project-results">
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Quantified revenue drop (−49.1%) driven by demand shock — order volume declined while AOV and margin remained stable</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Identified collapse in new customer acquisition (−68%), mainly from offline channels → exposed weakness in acquisition strategy</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Revealed disparities across markets and store formats → recommended Omnichannel shift and store restructuring</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Quantified revenue drop (−49.1%) driven by demand shock — order volume declined while AOV and margin remained stable"
+                  data-vi="Xác định doanh thu giảm 49,1% chủ yếu do số lượng đơn hàng suy giảm, trong khi AOV và margin vẫn ổn định">
+              Quantified revenue drop (−49.1%) driven by demand shock — order volume declined while AOV and margin remained stable</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Identified collapse in new customer acquisition (−66%), mainly from offline channels → exposed weakness in acquisition strategy"
+                  data-vi="Phát hiện lượng khách hàng mới giảm 66%, đặc biệt tại kênh Offline, thị trường và phân khúc cửa hàng">
+              Identified collapse in new customer acquisition (−66%), mainly from offline channels → exposed weakness in acquisition strategy</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Revealed disparities across markets and store formats → recommended Omnichannel shift and store restructuring"
+                  data-vi="Đề xuất chiến lược chuyển đổi sang mô hình Omnichannel và tái cấu trúc hệ thống cửa hàng">
+              Revealed disparities across markets and store formats → recommended Omnichannel shift and store restructuring</span></div>
         </div>
         <div class="project-tools">
-          <span>Power BI</span><span>DAX</span><span>Revenue Decomposition</span><span>Business Strategy</span>
+          <span>Power BI</span><span>SQL</span><span>Excel</span><span>DAX</span><span>Revenue Decomposition</span>
         </div>
-        <a href="https://github.com/AnDinh039/Retail-Business-Operations-Strategy-Analytics" target="_blank" class="project-link">
-          <i class="fab fa-github"></i> View on GitHub
+        <a href="https://github.com/AnDinh039" target="_blank" class="project-link">
+          <i class="fab fa-github"></i> <span data-en="View on GitHub" data-vi="Xem trên GitHub">View on GitHub</span>
         </a>
       </div>
-
       <div class="ps-images">
-        <div class="ps-img-main ps-placeholder">
-          <div class="placeholder-inner"><i class="fas fa-store"></i><span>Dashboard Screenshot</span><p>Coming soon</p></div>
+        <div class="ps-img-main" onclick="openLightbox('retail_1.png','Executive Overview — Revenue & KPIs')">
+          <img src="retail_1.png" alt="Executive Overview">
+          <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Executive Overview" data-vi="Tổng quan Điều hành">Executive Overview</span></div>
         </div>
         <div class="ps-img-stack">
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-chart-bar"></i><span>Revenue Analysis</span></div></div>
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-users"></i><span>Customer Insights</span></div></div>
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-map-marked-alt"></i><span>Market Overview</span></div></div>
+          <div class="ps-img-thumb" onclick="openLightbox('retail_1.png','Executive Overview')">
+            <img src="retail_1.png" alt="Executive Overview">
+            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Executive Overview" data-vi="Tổng quan">Executive Overview</span></div>
+          </div>
+          <div class="ps-img-thumb" onclick="openLightbox('retail_2.png','Market Analysis')">
+            <img src="retail_2.png" alt="Market Analysis">
+            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Market Analysis" data-vi="Phân tích Thị trường">Market Analysis</span></div>
+          </div>
+          <div class="ps-img-thumb" onclick="openLightbox('retail_3.png','Category Performance')">
+            <img src="retail_3.png" alt="Category Performance">
+            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Category Performance" data-vi="Hiệu suất Danh mục">Category Performance</span></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- PROJECT 02 — Sales Performance Analysis (text left, images right) -->
+    <!-- PROJECT 02 — Sales Performance Analysis -->
     <div class="project-split reverse fade-up delay-1">
       <div class="ps-content">
-        <div class="ps-meta">
-          <span class="ps-num">02</span>
-        </div>
+        <div class="ps-meta"><span class="ps-num">02</span></div>
         <div class="ps-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Sales Performance Analysis</h3>
+        <h3 data-en="Sales Performance Analysis for TechMart" data-vi="Phân tích Hiệu suất Kinh doanh TechMart">Sales Performance Analysis for TechMart</h3>
         <p class="project-period">Oct, 2025 – Nov, 2025</p>
-        <p class="project-desc">
-          Analyzed cross-functional datasets (Orders, Employees, Stores, Channels, Customers) to deliver
-          sales and operational performance insights using Power BI. Built advanced DAX measures for
-          channel segmentation, margin analysis, and customer lifetime value (CLV).
+        <p class="project-desc"
+           data-en="Analyzed cross-functional datasets (Sales, Customers, Products, Stores) using SQL and Power BI to evaluate business performance and identify key growth drivers."
+           data-vi="Phân tích dữ liệu từ nhiều nguồn (Sales, Customers, Products, Stores) nhằm đánh giá hiệu quả kinh doanh và xác định động lực tăng trưởng.">
+          Analyzed cross-functional datasets (Sales, Customers, Products, Stores) using SQL and Power BI to evaluate business performance and identify key growth drivers.
         </p>
         <div class="project-results">
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Online = top channel (38% revenue, AOV 1.47M) — optimized channel investment strategy</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>VIP/Premium = 44% customers contributing &gt;75% CLV (VIP CLV 18.16M, ~5× Regular)</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Top team generated 10.3M revenue; Sales staff drove 60% of total revenue</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Identified Online as primary growth driver (38% revenue, highest AOV) while offline channels showed low ROI → recommended channel reallocation"
+                  data-vi="Kênh Online đóng vai trò là động lực tăng trưởng chính, chiếm 38% tổng doanh thu với giá trị đơn hàng trung bình cao nhất">
+              Identified Online as primary growth driver (38% revenue, highest AOV) → recommended channel reallocation</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Discovered Southern market contributed 65% total revenue → highlighted geographic dependency risk"
+                  data-vi="Thị trường miền Nam chiếm 65% doanh thu, tiềm ẩn rủi ro phụ thuộc khu vực">
+              Discovered Southern market contributed 65% total revenue → highlighted geographic dependency risk</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Segmented customers and found VIP/Premium (44%) generated >75% CLV (~5× Regular) → proposed retention-focused strategy"
+                  data-vi="Nhóm khách hàng VIP/Premium (44%) đóng góp hơn 75% giá trị vòng đời khách hàng (CLV), cao gấp ~5 lần nhóm khách hàng phổ thông">
+              Segmented customers: VIP/Premium (44%) generated &gt;75% CLV (~5× Regular) → proposed retention-focused strategy</span></div>
         </div>
         <div class="project-tools">
           <span>Power BI</span><span>DAX</span><span>Power Query</span><span>SQL</span><span>Excel</span>
         </div>
         <a href="https://github.com/AnDinh039/Sales-Performance-Analysis-TechMart-Power-BI" target="_blank" class="project-link">
-          <i class="fab fa-github"></i> View on GitHub
+          <i class="fab fa-github"></i> <span data-en="View on GitHub" data-vi="Xem trên GitHub">View on GitHub</span>
         </a>
       </div>
-
       <div class="ps-images">
-        <!-- Main large image -->
         <div class="ps-img-main" onclick="openLightbox('sales_1.png','Executive Overview — Revenue & KPIs')">
           <img src="sales_1.png" alt="Executive Overview">
-          <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Executive Overview</span></div>
+          <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Executive Overview" data-vi="Tổng quan Điều hành">Executive Overview</span></div>
         </div>
-        <!-- 3 smaller images stacked -->
         <div class="ps-img-stack">
           <div class="ps-img-thumb" onclick="openLightbox('sales_2.png','Channel Performance')">
             <img src="sales_2.png" alt="Channel Performance">
-            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Channel Performance</span></div>
+            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Channel Performance" data-vi="Hiệu suất Kênh bán">Channel Performance</span></div>
           </div>
           <div class="ps-img-thumb" onclick="openLightbox('sales_5.png','Customer Analytics')">
             <img src="sales_5.png" alt="Customer Analytics">
-            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Customer Analytics</span></div>
+            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Customer Analytics" data-vi="Phân tích Khách hàng">Customer Analytics</span></div>
           </div>
           <div class="ps-img-thumb" onclick="openLightbox('sales_6.png','Team & Employee Performance')">
             <img src="sales_6.png" alt="Team Performance">
-            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span>Team Performance</span></div>
+            <div class="ps-img-overlay"><i class="fas fa-expand"></i><span data-en="Team Performance" data-vi="Hiệu suất Nhóm">Team Performance</span></div>
           </div>
         </div>
       </div>
@@ -394,38 +497,40 @@
     <!-- PROJECT 03 — Bank Transaction Risk Alert System -->
     <div class="project-split fade-up delay-2">
       <div class="ps-content">
-        <div class="ps-meta">
-          <span class="ps-num">03</span>
-        </div>
+        <div class="ps-meta"><span class="ps-num">03</span></div>
         <div class="ps-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Bank Transaction Risk Alert System</h3>
+        <h3 data-en="Bank Transaction Risk Alert System" data-vi="Hệ thống Cảnh báo Rủi ro Giao dịch Ngân hàng">Bank Transaction Risk Alert System</h3>
         <p class="project-period">Jul, 2025 – Oct, 2025</p>
-        <p class="project-desc">
-          Engineered a real-time banking transaction monitoring system integrated with Machine Learning
-          models for proactive fraud and anomaly detection. Built a custom Tkinter GUI with
-          Matplotlib/Seaborn for live visualization of transaction flows and alert status.
+        <p class="project-desc"
+           data-en="Engineered a real-time banking transaction monitoring system integrated with Machine Learning models for proactive fraud and anomaly detection. Built a custom Tkinter GUI with Matplotlib/Seaborn for live visualization."
+           data-vi="Xây dựng hệ thống giám sát giao dịch ngân hàng theo thời gian thực, tích hợp mô hình Machine Learning để phát hiện gian lận và bất thường chủ động.">
+          Engineered a real-time banking transaction monitoring system integrated with Machine Learning models for proactive fraud and anomaly detection. Built a custom Tkinter GUI with Matplotlib/Seaborn for live visualization.
         </p>
         <div class="project-results">
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>System operated stably in real time with over 80% anomaly detection precision</span></div>
-          <div class="result-item"><i class="fas fa-check-circle"></i><span>Prompt alerting mechanism successfully mitigated risky transaction activities</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="System operated stably in real time with over 80% anomaly detection precision"
+                  data-vi="Hệ thống hoạt động ổn định theo thời gian thực với độ chính xác phát hiện bất thường trên 80%">
+              System operated stably in real time with over 80% anomaly detection precision</span></div>
+          <div class="result-item"><i class="fas fa-check-circle"></i>
+            <span data-en="Prompt alerting mechanism successfully mitigated risky transaction activities"
+                  data-vi="Cơ chế cảnh báo kịp thời đã giảm thiểu hiệu quả các hoạt động giao dịch rủi ro">
+              Prompt alerting mechanism successfully mitigated risky transaction activities</span></div>
         </div>
         <div class="project-tools">
           <span>Python</span><span>Scikit-learn</span><span>Kafka</span><span>Docker</span><span>SQL Server</span>
         </div>
         <a href="https://github.com/AnDinh039/DATA-ANALYSIS-IN-BANKING.git" target="_blank" class="project-link">
-          <i class="fab fa-github"></i> View on GitHub
+          <i class="fab fa-github"></i> <span data-en="View on GitHub" data-vi="Xem trên GitHub">View on GitHub</span>
         </a>
       </div>
-
-      <!-- Placeholder images for Bank project -->
       <div class="ps-images">
         <div class="ps-img-main ps-placeholder">
-          <div class="placeholder-inner"><i class="fas fa-shield-alt"></i><span>Dashboard Screenshot</span><p>Coming soon</p></div>
+          <div class="placeholder-inner"><i class="fas fa-shield-alt"></i><span data-en="Dashboard Screenshot" data-vi="Ảnh Dashboard">Dashboard Screenshot</span><p data-en="Coming soon" data-vi="Sắp có">Coming soon</p></div>
         </div>
         <div class="ps-img-stack">
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-chart-area"></i><span>Live Monitor</span></div></div>
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-exclamation-triangle"></i><span>Alert System</span></div></div>
-          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-brain"></i><span>ML Model</span></div></div>
+          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-chart-area"></i><span data-en="Live Monitor" data-vi="Theo dõi trực tiếp">Live Monitor</span></div></div>
+          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-exclamation-triangle"></i><span data-en="Alert System" data-vi="Hệ thống Cảnh báo">Alert System</span></div></div>
+          <div class="ps-img-thumb ps-placeholder"><div class="placeholder-inner"><i class="fas fa-brain"></i><span data-en="ML Model" data-vi="Mô hình ML">ML Model</span></div></div>
         </div>
       </div>
     </div>
@@ -445,17 +550,19 @@
   <section id="contact" class="contact-section">
     <div class="contact-bg"></div>
     <div class="section-header fade-up">
-      <p class="section-tag">Let's talk</p>
-      <h2>Get In <span class="accent">Touch</span></h2>
-      <p class="contact-subtitle">I'm currently open to Data Analyst opportunities. Let's connect!</p>
+      <p class="section-tag" data-en="Let's talk" data-vi="Hãy kết nối">Let's talk</p>
+      <h2>Get In <span class="accent" data-en="Touch" data-vi="Touch">Touch</span></h2>
+      <p class="contact-subtitle"
+         data-en="I'm currently open to Data Analyst opportunities. Let's connect!"
+         data-vi="Tôi đang tìm kiếm cơ hội Data Analyst. Hãy liên hệ với tôi!">
+        I'm currently open to Data Analyst opportunities. Let's connect!</p>
     </div>
-
     <div class="contact-grid fade-up delay-1">
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-phone"></i></div>
           <div>
-            <p class="contact-label">Phone</p>
+            <p class="contact-label" data-en="Phone" data-vi="Điện thoại">Phone</p>
             <a href="tel:0944136802">0944 136 802</a>
           </div>
         </div>
@@ -469,8 +576,8 @@
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div>
-            <p class="contact-label">Location</p>
-            <span>Tan Phu District, HCMC</span>
+            <p class="contact-label" data-en="Location" data-vi="Địa chỉ">Location</p>
+            <span data-en="Tan Phu District, HCMC" data-vi="Quận Tân Phú, TP.HCM">Tan Phu District, HCMC</span>
           </div>
         </div>
         <div class="contact-item">
@@ -480,7 +587,6 @@
             <a href="https://github.com/AnDinh039" target="_blank">github.com/AnDinh039</a>
           </div>
         </div>
-        <!-- ✅ MỚI THÊM: LinkedIn contact item -->
         <div class="contact-item">
           <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
           <div>
@@ -489,7 +595,7 @@
           </div>
         </div>
         <div class="contact-socials">
-          <a href="https://github.com/AnDinh039" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/AnDinh039"       target="_blank"><i class="fab fa-github"></i></a>
           <a href="https://linkedin.com/in/andinhda03" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="mailto:andinh03.da@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -498,23 +604,24 @@
 
       <form class="contact-form" id="contactForm">
         <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="John Doe" required>
+          <label for="name"    data-en="Your Name"      data-vi="Họ và tên">Your Name</label>
+          <input type="text"   id="name"    data-placeholder-en="John Doe"                        data-placeholder-vi="Nguyễn Văn A"                       placeholder="John Doe" required>
         </div>
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="john@example.com" required>
+          <label for="email"   data-en="Email Address"  data-vi="Địa chỉ Email">Email Address</label>
+          <input type="email"  id="email"   data-placeholder-en="john@example.com"                data-placeholder-vi="example@gmail.com"                  placeholder="john@example.com" required>
         </div>
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" placeholder="Internship Opportunity">
+          <label for="subject" data-en="Subject"        data-vi="Tiêu đề">Subject</label>
+          <input type="text"   id="subject" data-placeholder-en="Data Analyst Opportunity"        data-placeholder-vi="Cơ hội Data Analyst"                placeholder="Data Analyst Opportunity">
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
+          <label for="message" data-en="Message"        data-vi="Nội dung">Message</label>
+          <textarea id="message" rows="5"  data-placeholder-en="Tell me about the opportunity..." data-placeholder-vi="Hãy cho tôi biết về cơ hội này..." placeholder="Tell me about the opportunity..." required></textarea>
         </div>
         <button type="submit" class="btn-primary full-width">
-          <i class="fas fa-paper-plane"></i> Send Message
+          <i class="fas fa-paper-plane"></i>
+          <span data-en="Send Message" data-vi="Gửi tin nhắn">Send Message</span>
         </button>
       </form>
     </div>
@@ -524,14 +631,17 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">Richard<span class="accent">.</span></div>
-      <p class="footer-copy">© 2025 Dinh Huu An. Crafted with ❤️ and a lot of data.</p>
+      <p class="footer-copy"
+         data-en="© 2025 Dinh Huu An. Crafted with ❤️ and a lot of data."
+         data-vi="© 2025 Đinh Hữu An. Được tạo ra với ❤️ và rất nhiều dữ liệu.">
+        © 2025 Dinh Huu An. Crafted with ❤️ and a lot of data.</p>
       <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#about"      data-en="About"      data-vi="Giới thiệu">About</a>
+        <a href="#skills"     data-en="Skills"     data-vi="Kỹ năng">Skills</a>
+        <a href="#experience" data-en="Experience" data-vi="Kinh nghiệm">Experience</a>
+        <a href="#education"  data-en="Education"  data-vi="Học vấn">Education</a>
+        <a href="#projects"   data-en="Projects"   data-vi="Dự án">Projects</a>
+        <a href="#contact"    data-en="Contact"    data-vi="Liên hệ">Contact</a>
       </div>
     </div>
   </footer>
@@ -541,12 +651,47 @@
   </button>
 
   <script>
-    // Lightbox
+    // ===== LANGUAGE TOGGLE =====
+    let currentLang = 'en';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      // Update all data-en / data-vi text nodes
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+        const val = el.getAttribute('data-' + lang);
+        if (val !== null) el.textContent = val;
+      });
+      // Update placeholders
+      document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+        const val = el.getAttribute('data-placeholder-' + lang);
+        if (val) el.placeholder = val;
+      });
+      // Switch CV link & label
+      const cvLink = document.getElementById('cvLink');
+      const cvText = document.getElementById('cvText');
+      if (lang === 'vi') {
+        cvLink.href = 'https://drive.google.com/file/d/1E3By2lNhhjG6GyPa0SSblUrq-8EQND3i/view?usp=sharing';
+        cvText.textContent = 'CV của tôi';
+      } else {
+        cvLink.href = 'https://drive.google.com/file/d/1ni6suG1KpTsB-omc-K03E9epOLKTBpiW/view';
+        cvText.textContent = 'My CV';
+      }
+      // Toggle active button
+      document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+      document.getElementById('btnVI').classList.toggle('active', lang === 'vi');
+      // Update html lang attr
+      document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
+    }
+
+    document.getElementById('btnEN').addEventListener('click', () => applyLang('en'));
+    document.getElementById('btnVI').addEventListener('click', () => applyLang('vi'));
+
+    // ===== LIGHTBOX =====
     function openLightbox(src, caption) {
       document.getElementById('lb-img').src = src;
       document.getElementById('lb-caption').textContent = caption;
-      const lb = document.getElementById('lightbox');
-      lb.classList.add('active');
+      document.getElementById('lightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
     function closeLightbox() {
@@ -555,20 +700,18 @@
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    // Navbar scroll effect
+    // ===== NAVBAR SCROLL =====
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
       document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
     });
 
-    // Mobile nav toggle
+    // ===== MOBILE NAV =====
     document.getElementById('navToggle').addEventListener('click', function() {
       document.querySelector('.nav-links').classList.toggle('open');
       this.classList.toggle('active');
     });
-
-    // Close nav on link click
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', () => {
         document.querySelector('.nav-links').classList.remove('open');
@@ -576,70 +719,57 @@
       });
     });
 
-    // Back to top
+    // ===== BACK TO TOP =====
     document.getElementById('backTop').addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Scroll reveal
+    // ===== SCROLL REVEAL =====
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Animate donut charts on scroll
+    // ===== DONUTS =====
     const donutObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('animated');
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animated'); });
     }, { threshold: 0.3 });
     document.querySelectorAll('.skill-donut').forEach(el => donutObserver.observe(el));
 
-    // Animate bars on scroll
+    // ===== BARS =====
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.bar-fill').forEach(b => b.classList.add('animated'));
-        }
+        if (e.isIntersecting) e.target.querySelectorAll('.bar-fill').forEach(b => b.classList.add('animated'));
       });
     }, { threshold: 0.2 });
     document.querySelectorAll('.skill-card').forEach(el => barObserver.observe(el));
 
-    // Role cursor blink
+    // ===== ROLE CURSOR =====
     const cursor = document.querySelector('.role-cursor');
     if (cursor) setInterval(() => cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0', 600);
 
-    // Contact form handler
+    // ===== CONTACT FORM =====
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      const sentText = currentLang === 'vi' ? '✓ Đã gửi!' : '✓ Message Sent!';
+      btn.innerHTML = '<i class="fas fa-check"></i> ' + sentText;
       btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
       setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        const defaultText = currentLang === 'vi' ? 'Gửi tin nhắn' : 'Send Message';
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + defaultText;
         btn.style.background = '';
         this.reset();
       }, 3000);
     });
 
-    // Particles
+    // ===== PARTICLES =====
     const container = document.getElementById('particles');
     if (container) {
       for (let i = 0; i < 20; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
-        p.style.cssText = `
-          left:${Math.random()*100}%;
-          top:${Math.random()*100}%;
-          width:${2+Math.random()*4}px;
-          height:${2+Math.random()*4}px;
-          animation-delay:${Math.random()*6}s;
-          animation-duration:${4+Math.random()*6}s;
-        `;
+        p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px;animation-delay:${Math.random()*6}s;animation-duration:${4+Math.random()*6}s;`;
         container.appendChild(p);
       }
     }
